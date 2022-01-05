@@ -1,0 +1,30 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13780\viewh11240\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+I need a docker script made for a project I am working on. \
+\
+The script will setup a lamp environment with the following:\
+- Ubuntu 20.04\
+- Apache2 version 2.4.52 (or newer)\
+- MariaDb version 10.6.5  (or newer)\
+- PHP 8.1 (latest patch)\
+\
+The required ubuntu packages are: sudo apt install -y php8.1 php8.1-common php8.1-mysql php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-cli php8.1-mbstring php8.1-bcmath unzip php8.1-zip mariadb-server mariadb-client apache2 #con docker exec en el script\
+\
+The project folder should be as follows:\
+/project/\
+/project/src/public/index.php (hello world)\
+/project/docker/docker_script\
+\
+- Apache needs to be configured to mount a share located on the same drive as the docker script itself, path will be: "../src/public" it should mount to /var/www/src/public/\
+\
+Upon bringing the docker script up it should:\
+apt update && apt upgrade #con docker exec al final del script?\
+\
+When bringing up the docker image for the first time, it should also run a script in the src directory called "/src/db-update.php". For now, you can just have it echo to the console from the script stating that it has run.}

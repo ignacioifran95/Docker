@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+
+  www:
+    image: ubuntu-apache2-php
+    ports:
+      - 8080:80
+    volumes:
+      - ./apache-conf/apache2/:/etc/apache2
+      - ../src/public:/var/www/src/public
+    environment:
+      MYSQL_HOST: mariadb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: database
+ 
+#command: --default-authentication-plugin=mysql_native_password
+    
+  mysql:
+    image: mariadb:10.6.5
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - ./my-sql-data:/var/lib/mysql
